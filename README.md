@@ -1,4 +1,2 @@
-### projects
-## projects
 # projects
-Miscellaneous (and sometimes pointless) projects done in my spare time.
+Miscellaneous _(and sometimes pointless)_ projects done in my spare time.
