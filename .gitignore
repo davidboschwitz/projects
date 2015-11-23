@@ -1,6 +1,6 @@
 #------ Misc Ignore ------#
-.DS_STORE
-
+*.DS_STORE
+Thumbs.db
 
 #------ Java Ignore ------#
 *.class
