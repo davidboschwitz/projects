@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,9 +24,10 @@ public class LightFrame extends JFrame {
         initComponents();
     }
 
-    private static LightFrame[] myFrames;
+    private static ArrayList<LightFrame> myFrames;
     private static Thread thread;
     private static long timeout, lastTap = 0;
+    private static int nextLocationX = 0, nextLocationY = 0;
     private static boolean stop = false;
     private static final Color[] default_colors = new Color[]{Color.red, Color.BLUE, Color.yellow, Color.green, Color.magenta, Color.cyan, Color.white};
     private static Color[] colors;
@@ -109,6 +111,16 @@ public class LightFrame extends JFrame {
                 //"Next" don't wait for sleep to finish
                 thread.interrupt();
                 break;
+
+            case 'a':
+                //"add" a new screen
+                java.awt.EventQueue.invokeLater(() -> {
+                    LightFrame lf = new LightFrame();
+                    lf.setTitle("Color Strobe");
+                    lf.setLocation(nextLocationX++ * 10, nextLocationY++ * 10);
+                    lf.setVisible(true);
+                    myFrames.add(lf);
+        });
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -141,21 +153,22 @@ public class LightFrame extends JFrame {
 
         int size = Integer.parseInt(args[0]);
 
-        myFrames = new LightFrame[size];
+        myFrames = new ArrayList<>();
 
         colors = default_colors;
         /* Create and display the form */
-        for (int i = 0; i < myFrames.length; i++) {
-            java.awt.EventQueue.invokeLater(new LightsRunnable(i) {
-                @Override
-                public void run() {
-                    myFrames[getIndex()] = new LightFrame();
-                    myFrames[getIndex()].setVisible(true);
-                }
+        for (int i = 0; i < size; i++) {
+            java.awt.EventQueue.invokeLater(() -> {
+                    LightFrame lf = new LightFrame();
+                    lf.setTitle("Color Strobe");
+                    lf.setLocation(nextLocationX++ * 10, nextLocationY++ * 10);
+                    lf.setVisible(true);
+                    myFrames.add(lf);
             });
         }
 
         thread = Thread.currentThread();
+        
         //wait to make sure frames are ready
         try {
             Thread.sleep(5000);
