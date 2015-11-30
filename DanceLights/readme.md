@@ -1,6 +1,7 @@
 # DanceLights
 Transforms your computer monitor(s) into colored strobe lights.
-Controls
+
+__Keys:__
 ```
 t - tap timing for strobe sequence
 c - select color to strobe 
