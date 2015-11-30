@@ -1,8 +1,10 @@
 # projects
-Miscellaneous _(and sometimes pointless)_ projects done in my spare time.<br>
+Miscellaneous _(and sometimes pointless)_ projects done in my spare time.
+
 _Jump to:_<br>
 [Java Projects](#java-projects)<br>
 more coming soon...
+
 
 ## java projects
 ### Dance Lights
