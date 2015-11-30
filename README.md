@@ -7,4 +7,4 @@ more coming soon...
 
 
 ## java projects
-### Dance Lights
+### [Dance Lights](https://github.com/davidboschwitz/projects/tree/master/DanceLights)
