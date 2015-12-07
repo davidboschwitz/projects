@@ -19,6 +19,7 @@ public class LightFrame extends JFrame {
         initComponents();
     }
 
+    /* Static Variables */
     private static ArrayList<LightFrame> myFrames;
     private static Thread thread;
     private static long timeout, lastTap = 0;
@@ -26,6 +27,8 @@ public class LightFrame extends JFrame {
     private static boolean stop = false;
     private static final Color[] default_colors = new Color[]{Color.red, Color.BLUE, Color.yellow, Color.green, Color.magenta, Color.cyan, Color.white};
     private static Color[] colors;
+
+    /* Object Variables */
     private boolean fullscreen = false;
 
     /**
@@ -115,7 +118,7 @@ public class LightFrame extends JFrame {
                     lf.setLocation(nextLocationX++ * 10, nextLocationY++ * 10);
                     lf.setVisible(true);
                     myFrames.add(lf);
-        });
+                });
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -154,11 +157,11 @@ public class LightFrame extends JFrame {
         /* Create and display the form */
         for (int i = 0; i < size; i++) {
             java.awt.EventQueue.invokeLater(() -> {
-                    LightFrame lf = new LightFrame();
-                    lf.setTitle("Color Strobe");
-                    lf.setLocation(nextLocationX++ * 10, nextLocationY++ * 10);
-                    lf.setVisible(true);
-                    myFrames.add(lf);
+                LightFrame lf = new LightFrame();
+                lf.setTitle("Color Strobe");
+                lf.setLocation(nextLocationX++ * 10, nextLocationY++ * 10);
+                lf.setVisible(true);
+                myFrames.add(lf);
             });
         }
 
