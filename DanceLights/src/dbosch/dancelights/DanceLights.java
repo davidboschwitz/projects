@@ -11,7 +11,7 @@ public class DanceLights {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LightFrame.main("3");
+        LightFrame.main("1");
     }
 
 }
