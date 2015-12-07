@@ -1,5 +1,5 @@
 # projects
-Miscellaneous _(and sometimes pointless)_ projects done in my spare time. All projects are licensed with the Apache 2.0 License see [license.txt](#)
+Miscellaneous _(and sometimes pointless)_ projects done in my spare time. All projects are licensed with the Apache 2.0 License see [license.txt](https://github.com/davidboschwitz/projects/blob/master/license.txt)
 
 _Jump to:_<br>
 [Java Projects](#java-projects)<br>
