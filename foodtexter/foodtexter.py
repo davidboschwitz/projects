@@ -30,7 +30,7 @@ for url in urls:
     for line in data:
         #get meal info
         if "<div class=\"event-header\"><h2>" in line:
-            current_meal = line[30:33]
+            current_meal = line[30:33] #first 3 chars is enough to know which meal
             if 'B' in current_meal:
                 current_meal = "Breakfast"
             elif 'Lu' in current_meal:
