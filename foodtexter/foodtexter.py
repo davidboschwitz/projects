@@ -18,11 +18,13 @@ def notify_for_meal(food, loc, meal):
 #do the food stuff
 i = 0
 
+#iterate through dining hall urls
 for url in urls:
     current_location = locations[i]
-    data = urllib2.urlopen(url) # it's a file like object and works just like a file
+    data = urllib2.urlopen(url)
 
-    for line in data: # files are iterable
+    #iterate through webpage line by line
+    for line in data:
         #get meal info
         if "<div class=\"event-header\"><h2>" in line:
             current_meal = line[30:33]
