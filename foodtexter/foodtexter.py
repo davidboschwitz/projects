@@ -1,21 +1,22 @@
 import urllib2
 import smtplib
 
-search_terms = ['Cheese Tortellini', 'Grilled Cheese', 'Chicken Tenders' ]
+search_terms = [['Cheese Tortellini', 'Grilled Cheese', 'Chicken Tenders' ],['Potato Rounds']]
 locations = ["Conversations", "Seasons"]
 urls = ["http://www.dining.iastate.edu/menus/conversations", "http://www.dining.iastate.edu/menus/seasons"]
+users = ["TO@mms.att.net", "TO@vtext.com"]
 current_meal = ""
 current_location = ""
 
 
-def notify_for_meal(food, loc, meal):
+def notify_for_meal(food, loc, meal, to):
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.ehlo()
     server.starttls()
     server.ehlo()
     server.login('EMAIL', 'PASSWORD')
-    server.sendmail('FROM', 'TO@txt.att.net', str(food) + " is available at " + str(loc) + " for " +str(meal) + "!")
-    print "send message: " + str(food) + " is available at " + str(loc) + " for " +str(meal) + "! \n"
+    server.sendmail('FROM', str(to), str(food) + " is available at " + str(loc) + " for " +str(meal) + "!")
+    print "send message (" + str(to) + "): " + str(food) + " is available at " + str(loc) + " for " +str(meal) + "! \n"
     server.quit()
 
 #do the food stuff
@@ -39,10 +40,13 @@ for url in urls:
                 current_meal = "Late Night"
             else:
                 current_meal = "Dinner"
-        #see if my fav foods are in that meal
-        for search in search_terms:
-            if search in line:
-                #late night meals are always the same, don't notify
-                if current_meal != "Late Night":
-                    notify_for_meal(search, current_location, current_meal)
+
+        #user_index = 0;
+        for user_index in range(0, len(users)):
+            #see if my fav foods are in that meal
+            for search in search_terms[user_index]:
+                if search in line:
+                    #late night meals are always the same, don't notify
+                    if current_meal != "Late Night":
+                        notify_for_meal(search, current_location, current_meal, users[user_index])
     i += 1
