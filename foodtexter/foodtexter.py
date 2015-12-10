@@ -10,10 +10,13 @@ current_location = ""
 
 def notify_for_meal(food, loc, meal):
     server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.ehlo()
     server.starttls()
+    server.ehlo()
     server.login('EMAIL', 'PASSWORD')
     server.sendmail('FROM', 'TO@txt.att.net', str(food) + " is available at " + str(loc) + " for " +str(meal) + "!")
     print "send message: " + str(food) + " is available at " + str(loc) + " for " +str(meal) + "! \n"
+    server.quit()
 
 #do the food stuff
 i = 0
