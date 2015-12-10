@@ -18,7 +18,8 @@ http.createServer(function (request, response) {
   if(get_data['pathname'] == "/hello"){
     helloworld.sayhello(response);
   }
-  switch(get_data['pathname']){
+
+  switch(get_data['pathname']) {
     case "/hello":
       helloworld.sayhello(response);
       break;
@@ -26,6 +27,7 @@ http.createServer(function (request, response) {
       response.writeHead(200, {'Content-Type': 'text/plain'});
       response.end("Nothing here yet");
       break;
+
   }
 }).listen(8081);
 
