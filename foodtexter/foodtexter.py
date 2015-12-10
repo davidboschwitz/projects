@@ -1,7 +1,7 @@
 import urllib2
 import smtplib
 
-search_terms = ['Cheese Tortellini', 'Grilled Cheese', 'Snickerdoodle Cookie' ]
+search_terms = ['Cheese Tortellini', 'Grilled Cheese', 'Chicken Tenders' ]
 locations = ["Conversations", "Seasons"]
 urls = ["http://www.dining.iastate.edu/menus/conversations", "http://www.dining.iastate.edu/menus/seasons"]
 current_meal = ""
